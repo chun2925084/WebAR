@@ -1,47 +1,78 @@
-# Pre-trained TensorFlow.js models
+# PoseNet Demos
 
-This repository hosts a set of pre-trained models that have been ported to
-TensorFlow.js.
+## Contents
 
-The models are hosted on NPM and unpkg so they can be used in any project out of the box. They can be used directly or used in a transfer learning
-setting with TensorFlow.js.
+### Demo 1: Camera
 
-To find out about APIs for models, look at the README in each of the respective
-directories. In general, we try to hide tensors so the API can be used by
-non-machine learning experts.
+The camera demo shows how to estimate poses in real-time from a webcam video stream.
 
-For those intested in contributing a model, please file a [GitHub issue on tfjs](https://github.com/tensorflow/tfjs/issues) to gauge
-interest. We are trying to add models that complement the existing set of models
-and can be used as building blocks in other apps.
+<img src="https://raw.githubusercontent.com/irealva/tfjs-models/master/posenet/demos/camera.gif" alt="cameraDemo" style="width: 600px;"/>
 
-## Models
 
-### Image
-- [MobileNet](https://github.com/tensorflow/tfjs-models/tree/master/mobilenet) - Classify images with labels from the [ImageNet database](http://www.image-net.org/).
-  - `npm i @tensorflow-models/mobilenet`
-- [PoseNet](https://github.com/tensorflow/tfjs-models/tree/master/posenet) - Realtime pose detection. Blog post [here](https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5).
-  - `npm i @tensorflow-models/posenet`
-- [Coco SSD](https://github.com/tensorflow/tfjs-models/tree/master/coco-ssd) - Object detection based on the [TensorFlow object detection API](https://github.com/tensorflow/models/blob/master/research/object_detection/README.md).
-  - `npm i @tensorflow-models/coco-ssd`
+### Demo 2: Coco Images
 
-### Audio
-- [Speech commands](https://github.com/tensorflow/tfjs-models/tree/master/speech-commands) - Classify 1 second audio snippets from the [speech commands dataset](https://www.tensorflow.org/tutorials/sequences/audio_recognition).
-  - `npm i @tensorflow-models/speech-commands`
+The [coco images](http://cocodataset.org/#home) demo shows how to estimate poses in images. It also illustrates the differences between the single-person and multi-person pose detection algorithms.
 
-### General utilities
-- [KNN Classifier](https://github.com/tensorflow/tfjs-models/tree/master/knn-classifier) - Create a custom k-nearest neighbors classifier. Can be used for transfer learning.
-  - `npm i @tensorflow-models/knn-classifier`
+<img src="https://raw.githubusercontent.com/irealva/tfjs-models/master/posenet/demos/coco.gif" alt="cameraDemo" style="width: 600px;"/>
 
-## Development
 
-You can run the unit tests for any of the models by running the following
-inside a directory:
+## Setup
 
-`yarn test`
+cd into the demos folder:
 
-New models should have a test NPM script.
+```sh
+cd posenet/demos
+```
 
-To run all of the tests, you can run the following command from the root of this
-repo:
+Install dependencies and prepare the build directory:
 
-`yarn presubmit`
+```sh
+yarn
+```
+
+To watch files for changes, and launch a dev server:
+
+```sh
+yarn watch
+```
+
+## If you are developing posenet locally, and want to test the changes in the demos
+
+Cd into the posenet folder:
+```sh
+cd posenet
+```
+
+Install dependencies:
+```sh
+yarn
+```
+
+Publish posenet locally:
+```sh
+yarn build && yalc publish
+```
+
+Cd into the demos and install dependencies:
+
+```sh
+cd demos
+yarn
+```
+
+Link the local posenet to the demos:
+```sh
+yarn yalc link @tensorflow-models/posenet
+```
+
+Start the dev demo server:
+```sh
+yarn watch
+```
+
+To get future updates from the posenet source code:
+```
+# cd up into the posenet directory
+cd ../
+yarn build && yalc push
+```

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PoseNet - Camera Feed Demo</title>
+    <link rel="stylesheet" href="camera.91bea6d2.css">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+</head>
+
+<body>
+    <div id="info" style="display:none">
+    </div>
+    <div id="loading">
+        Loading the model...
+    </div>
+    
+    <!--<h1 id="question" style="border:2px solid Tomato;"></h1>-->
+    <!-- <button id="startButton" class="button">Start!</button> -->
+
+    <div id="main-page" style="display:flex">
+      <div id="main-page-left-cover">
+          <img src="button_EASY.png" class ="startBtn" id="startEasy">
+        <!-- <button id="startButton" class="button">Start!</button> -->
+      </div>
+      <div id="main-page-right-cover">
+          <img src="button_HARD.png" class ="startBtn" id="startHard">
+      </div>
+    </div>
+
+    <div id="main" style="display:flex">
+      <div id="left-cover">
+        <video id="video" playsinline="" style=" -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        display: none;
+        ">
+        </video>
+        <canvas id="output">
+        </canvas>
+      </div>
+      <div id="right-cover">
+        <div id="ans_div">
+          <div id="time_display" style="display:none">00:00</div>
+          <div id="question"></div>
+        </div> 
+      </div>
+    </div>
+
+    <!--
+
+    <div id="main" style="display:none">
+      <div id="left-cover">
+        <video id="video" playsinline="" style=" -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        display: none;
+        ">
+        </video>
+        <canvas id="output">
+        </canvas>
+      </div>
+      <div id="right-cover">
+        <div id="question" style="background-color:rgb(255, 99, 71);"></div>
+      </div>
+    </div>
+
+    -->
+
+    <div id="begin-info" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span id="close-begin-info" class="close">&times;</span>
+          <h2>遊戲須知</h2>
+        </div>
+        <div class="modal-body">
+          <p>1. 打開你的相機！</p>
+          <p>2. 調整角度, 讓你的上半身在畫面中！</p>
+          <p>3. 拉拉筋, 準備好你的想像力！</p>
+          <p>4. 按下Start!就可以開始囉！加油！</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- The Modal -->
+    <div id="gameOverModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>Congratulations!</h2>
+        </div>
+        <div class="modal-body">
+          <p id="modalText">Time used: 00:00</p>
+          <br>
+        </div>
+        <!-- <div class="modal-footer">
+          <h3> </h3>
+        </div> -->
+      </div>
+
+    </div>
+
+    <!-- <div class="footer">
+        <div class="footer-text">
+            <p>
+                PoseNet runs with either a <strong>single-pose</strong> or <strong>multi-pose</strong> detection algorithm. The single person pose detector is faster and more accurate but requires only one subject present in the image.
+                <br>
+                <br> The <strong>output stride</strong> and <strong>image scale factor</strong> have the largest effects on accuracy/speed. A <i>higher</i> output stride results in lower accuracy but higher speed. A <i>higher</i> image scale factor results in higher accuracy but lower speed.
+            </p>
+        </div>
+    </div> -->
+    <script src="camera.113d0f3a.js"></script>
+</body>
+
+</html>
